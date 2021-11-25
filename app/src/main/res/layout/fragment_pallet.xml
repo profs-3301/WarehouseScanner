@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="viewModel"
+            type="com.goodswarehouse.scanner.presentation.screens.pallet.PalletViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--Pallet NO.-->
+        <TextView
+            android:id="@+id/txt_pallet"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="16dp"
+            android:gravity="left"
+            android:text="Pallet No.:"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_pallet"
+            style="@style/AppEditTextStyle"
+            android:layout_marginLeft="16dp"
+
+            android:text="@={viewModel.palletBind}"
+            app:addTextChangedListener="@{viewModel.palletTextChangeListener}"
+            app:isKeyboardEnabled="@{false}"
+            app:isScannerKeyDoneEnabled="@{false}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/v_clear_pallet"
+            app:layout_constraintTop_toBottomOf="@id/txt_pallet" />
+
+        <ImageView
+            android:id="@+id/v_clear_pallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.clearPallet()}"
+            android:padding="16dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="#E91E63"
+            app:layout_constraintBottom_toBottomOf="@id/edt_pallet"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <!--Exp. Date:-->
+        <TextView
+            android:id="@+id/txt_lot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="16dp"
+            android:gravity="left"
+            android:text="Lot No.:"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_pallet" />
+
+        <EditText
+            android:id="@+id/edt_lot"
+            style="@style/AppEditTextStyle"
+            android:layout_marginLeft="16dp"
+
+            android:text="@={viewModel.lotBind}"
+            app:addTextChangedListener="@{viewModel.lotTextChangeListener}"
+            app:isKeyboardEnabled="@{false}"
+            app:isScannerKeyDoneEnabled="@{false}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/v_clear_lot"
+            app:layout_constraintTop_toBottomOf="@id/txt_lot" />
+
+        <ImageView
+            android:id="@+id/v_clear_lot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.clearLot()}"
+            android:padding="16dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="#E91E63"
+            app:layout_constraintBottom_toBottomOf="@id/edt_lot"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <!--Item No:-->
+        <TextView
+            android:id="@+id/txt_item"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="16dp"
+            android:gravity="left"
+            android:text="Item No.:"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_lot" />
+
+        <EditText
+            android:id="@+id/edt_item"
+            style="@style/AppEditTextStyle"
+            android:layout_marginLeft="16dp"
+
+            android:text="@={viewModel.itemBind}"
+            app:addTextChangedListener="@{viewModel.itemTextChangeListener}"
+            app:isKeyboardEnabled="@{false}"
+            app:isScannerKeyDoneEnabled="@{false}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/v_clear_item"
+            app:layout_constraintTop_toBottomOf="@id/txt_item" />
+
+        <ImageView
+            android:id="@+id/v_clear_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> viewModel.clearItem()}"
+            android:padding="16dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="#E91E63"
+            app:layout_constraintBottom_toBottomOf="@id/edt_item"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <!--BUTTONS-->
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginBottom="120dp"
+            android:background="@color/red"
+            android:ems="8"
+            android:onClick="@{() -> viewModel.testOpenSpecificD()}"
+            android:text="D"
+            android:visibility="@{viewModel.isDebugMode ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnOpenNormal"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="120dp"
+            android:background="@color/red"
+            android:ems="8"
+            android:onClick="@{() -> viewModel.testOpenTrack()}"
+            android:text="normal"
+            android:visibility="@{viewModel.isDebugMode ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btnOpenSpecificA"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/red"
+            android:ems="8"
+            android:onClick="@{() -> viewModel.testOpenSpecificA()}"
+            android:text="A"
+            android:visibility="@{viewModel.isDebugMode ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+            app:layout_constraintEnd_toStartOf="@+id/btnOpenSpecificB"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnOpenNormal" />
+
+        <Button
+            android:id="@+id/btnOpenSpecificB"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@color/red"
+            android:ems="8"
+            android:onClick="@{() -> viewModel.testOpenSpecificB()}"
+            android:text="B"
+            android:visibility="@{viewModel.isDebugMode ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+            app:layout_constraintEnd_toStartOf="@+id/btnOpenSpecificC"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnOpenSpecificA"
+            app:layout_constraintTop_toBottomOf="@id/btnOpenNormal" />
+
+        <Button
+            android:id="@+id/btnOpenSpecificC"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:background="@color/red"
+            android:ems="8"
+            android:onClick="@{() -> viewModel.testOpenSpecificC()}"
+            android:text="C"
+            android:visibility="@{viewModel.isDebugMode ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toTopOf="@+id/btn_submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btnOpenSpecificB"
+            app:layout_constraintTop_toBottomOf="@id/btnOpenNormal" />
+
+        <Button
+            android:id="@+id/btn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary"
+            android:ems="8"
+            android:onClick="@{() -> viewModel.clear()}"
+            android:text="Clear"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@color/colorPrimary"
+            android:ems="8"
+            android:onClick="@{() -> viewModel.verification()}"
+            android:text="Submit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="item"
+            type="com.goodswarehouse.scanner.presentation.screens.track.list.ItemVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--Phial Item No..-->
+        <TextView
+            android:id="@+id/txt_phial"
+            style="@style/AppEditTextStyle"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="left"
+            android:text="Phial Item No.:"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_phial"
+            style="@style/AppEditTextStyle"
+            android:layout_marginStart="16dp"
+
+            android:text="@={item.phialBind}"
+            app:addTextChangedListener="@{item.phialTextChangeListener}"
+            app:gainFocus="@{item.focusPhialBind}"
+            app:isKeyboardEnabled="@{false}"
+            app:isScannerKeyDoneEnabled="@{false}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/v_clear_phial"
+            app:layout_constraintTop_toBottomOf="@id/txt_phial" />
+
+        <ImageView
+            android:id="@+id/v_clear_phial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> item.clearPhial()}"
+            android:padding="16dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="#E91E63"
+            app:layout_constraintBottom_toBottomOf="@id/edt_phial"
+            app:layout_constraintRight_toRightOf="parent" />
+
+
+        <!--RM RETURN Track Label:-->
+        <TextView
+            android:id="@+id/txt_label"
+            style="@style/AppEditTextStyle"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="left"
+            android:text="RM RETURN Track Label:"
+            android:textSize="14sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edt_phial" />
+
+        <EditText
+            android:id="@+id/edt_label"
+            style="@style/AppEditTextStyle"
+            android:layout_marginStart="16dp"
+            android:text="@={item.rmLabelBind}"
+            app:addTextChangedListener="@{item.rmLabelTextChangeListener}"
+            app:gainFocus="@{item.focusLabelBind}"
+            app:isKeyboardEnabled="@{false}"
+            app:isScannerKeyDoneEnabled="@{false}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/v_clear_lot"
+            app:layout_constraintTop_toBottomOf="@id/txt_label" />
+
+        <ImageView
+            android:id="@+id/v_clear_lot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> item.clearLot()}"
+            android:padding="16dp"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:tint="#E91E63"
+            app:layout_constraintBottom_toBottomOf="@id/edt_label"
+            app:layout_constraintRight_toRightOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

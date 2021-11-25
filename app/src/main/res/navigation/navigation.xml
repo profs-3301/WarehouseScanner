@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/login_fragment">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.goodswarehouse.scanner.presentation.screens.login.LoginFragment"
+        android:label="LoginFragment">
+        <action
+            android:id="@+id/open_pallet_fragment"
+            app:destination="@id/pallet_fragment" />
+
+        <action
+            android:id="@+id/open_action"
+            app:destination="@id/action" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/pallet_fragment"
+        android:name="com.goodswarehouse.scanner.presentation.screens.pallet.PalletFragment"
+        android:label="PalletFragment">
+        <action
+            android:id="@+id/open_track_fragment"
+            app:destination="@id/track_fragment" />
+        <action
+            android:id="@+id/open_track_d_fragment"
+            app:destination="@id/track_d_fragment" />
+
+        <action
+            android:id="@+id/pallet_logoff"
+            app:destination="@id/login_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/track_fragment"
+        android:name="com.goodswarehouse.scanner.presentation.screens.track.TrackFragment"
+        android:label="TrackFragment">
+        <action
+            android:id="@+id/back_to_pallet_fragment"
+            app:destination="@id/pallet_fragment" />
+        <action
+            android:id="@+id/track_logoff"
+            app:destination="@id/login_fragment" />
+    </fragment>
+
+<!--   D  -->
+    <fragment
+        android:id="@+id/track_d_fragment"
+        android:name="com.goodswarehouse.scanner.presentation.screens.track.d.TrackDFragment"
+        android:label="TrackDFragment">
+        <action
+            android:id="@+id/back_to_pallet_fragment"
+            app:destination="@id/pallet_fragment" />
+        <action
+            android:id="@+id/track_logoff"
+            app:destination="@id/login_fragment" />
+    </fragment>
+
+<!---->
+
+    <fragment
+        android:id="@+id/action"
+        android:name="com.goodswarehouse.scanner.presentation.screens.action.ActionFragment"
+        android:label="ActionFragment">
+        <action
+            android:id="@+id/open_acceptance"
+            app:destination="@id/acceptance" />
+        <action
+            android:id="@+id/open_departure"
+            app:destination="@id/departure" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/acceptance"
+        android:name="com.goodswarehouse.scanner.presentation.screens.acceptance.AcceptanceFragment"
+        android:label="AcceptanceFragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/departure"
+        android:name="com.goodswarehouse.scanner.presentation.screens.departure.DepartureFragment"
+        android:label="DepartureFragment">
+    </fragment>
+
+</navigation>

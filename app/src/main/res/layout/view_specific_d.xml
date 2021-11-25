@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.goodswarehouse.scanner.presentation.screens.track.TrackViewModel.SkuType" />
+
+        <import type="android.view.View" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <import type="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <variable
+            name="viewModel"
+            type="com.goodswarehouse.scanner.presentation.screens.track.d.TrackDViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--QTY.-->
+        <TextView
+            android:id="@+id/txt_qty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:gravity="left"
+            android:text="Qty of Kits:"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_qty">
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:enabled="@{viewModel.isQtyNormalModeBind}"
+                android:padding="10dp"
+                android:text="1"
+                android:textColor="#fff" />
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:enabled="@{viewModel.isQtyNormalModeBind}"
+                android:padding="10dp"
+                android:text="2"
+                android:textColor="#fff" />
+
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="8dp"
+                android:layout_weight="1"
+                android:enabled="@{viewModel.isQtyNormalModeBind}"
+                android:padding="10dp"
+                android:text="3"
+                android:textColor="#fff" />
+
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="@{viewModel.isQtyNormalModeBind}"
+                android:padding="10dp"
+                android:text="4"
+                android:textColor="#fff" />
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:id="@+id/phialsView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/radio_group">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phial"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="Phial Item No.:"
+                    android:textSize="12sp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_phial"
+                        style="@style/AppEditTextStyle"
+                        android:enabled="@{viewModel.kitsCountBind > 0}"
+                        android:focusedByDefault="false"
+
+                        android:text="@={viewModel.phialBind}"
+                        app:addTextChangedListener="@{viewModel.phialTextChangeListener}"
+                        app:isKeyboardEnabled="@{false}"
+                        app:isScannerKeyDoneEnabled="@{false}" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.clearPhial()}"
+                    android:padding="16dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    app:tint="#D50000" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.kitsCountBind > 1 ? View.VISIBLE : View.GONE}">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phial2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="Phial Item No2.:"
+                    android:textSize="12sp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_phial2"
+                        style="@style/AppEditTextStyle"
+                        android:enabled="@{viewModel.kitsCountBind > 1}"
+
+                        android:text="@={viewModel.phial2Bind}"
+                        app:addTextChangedListener="@{viewModel.phial2TextChangeListener}"
+                        app:isKeyboardEnabled="@{false}"
+                        app:isScannerKeyDoneEnabled="@{false}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.clearPhial2()}"
+                    android:padding="16dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    app:tint="#E91E63" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.kitsCountBind > 2 ? View.VISIBLE : View.GONE}">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phial3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="Phial Item No3.:"
+                    android:textSize="12sp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_phial3"
+                        style="@style/AppEditTextStyle"
+                        android:enabled="@{viewModel.kitsCountBind > 2}"
+
+                        android:text="@={viewModel.phial3Bind}"
+                        app:addTextChangedListener="@{viewModel.phial3TextChangeListener}"
+                        app:isKeyboardEnabled="@{false}"
+                        app:isScannerKeyDoneEnabled="@{false}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.clearPhial3()}"
+                    android:padding="16dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    app:tint="#E91E63" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.kitsCountBind > 3 ? View.VISIBLE : View.GONE}">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/phial4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:hint="Phial Item No4.:"
+                    android:textSize="12sp"
+                    app:hintAnimationEnabled="true"
+                    app:hintEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edt_phial4"
+                        style="@style/AppEditTextStyle"
+                        android:enabled="@{viewModel.kitsCountBind > 3}"
+
+                        android:text="@={viewModel.phial4Bind}"
+                        app:addTextChangedListener="@{viewModel.phial4TextChangeListener}"
+                        app:isKeyboardEnabled="@{false}"
+                        app:isScannerKeyDoneEnabled="@{false}" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:onClick="@{() -> viewModel.clearPhial4()}"
+                    android:padding="16dp"
+                    android:src="@android:drawable/ic_menu_close_clear_cancel"
+                    app:tint="#E91E63" />
+            </FrameLayout>
+
+
+        </LinearLayout>
+
+        <!--RM SHIPPING Track Label / (trackingId) -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/phialsView">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/track"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:hint="RM SHIPPING Track Label:"
+                android:textSize="12sp"
+                app:hintAnimationEnabled="true"
+                app:hintEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edt_track"
+                    style="@style/AppEditTextStyle"
+                    android:enabled="@{viewModel.kitsCountBind > 0}"
+
+                    android:text="@={viewModel.trackBind}"
+                    app:addTextChangedListener="@{viewModel.trackTextChangeListener}"
+                    app:isKeyboardEnabled="@{false}"
+                    app:isScannerKeyDoneEnabled="@{false}" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:onClick="@{() -> viewModel.clearTrack()}"
+                android:padding="16dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="#E91E63" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

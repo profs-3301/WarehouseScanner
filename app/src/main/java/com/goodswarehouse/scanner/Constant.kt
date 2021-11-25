@@ -1,0 +1,31 @@
+package com.goodswarehouse.scanner
+
+//INNER ACTIONS
+const val CONNECTIVITY_ACTION = "android.net.conn.CONNECTIVITY_CHANGE"
+
+//SHARED PREFS
+const val PREF_NAME = "sp.local"
+const val PREF_DEVICE_ID = "PREF_DEVICE_ID"
+
+const val APP_VERSION_KEY = "APP_VERSION"
+
+const val SPECIFIC_A = "SPECIFIC_A_SKU_LIST"
+const val SPECIFIC_B = "SPECIFIC_B_SKU_LIST"
+const val SPECIFIC_C = "SPECIFIC_C_SKU_LIST"
+const val SPECIFIC_D = "SPECIFIC_D_SKU_LIST"
+
+const val PREFIXES = "PREFIXES"
+
+
+//DATABASE
+const val DATABASE_NAME = "db.database"
+const val TABLE_TRACK = "TRACK"
+
+//Debug
+const val WITH_LOGS = true
+
+//itemNo == SKU
+val SPECIFIC_A_SKU_LIST = arrayOf("CTK16-ELECV3", "CTK19-PVT001", "CTK20-PVT002", "CTK21-PVT003", "CTK22-PVT004", "CTK34-QMSV02")
+val SPECIFIC_B_SKU_LIST = arrayOf("CTK14-MANBORD", "CTK15-SEQBORD", "CTK24-GLABORD")
+val SPECIFIC_C_SKU_LIST = arrayOf("CTK31-MK07V2", "CTK33-CYMRUV2", "CTK37-MK07V3", "CTK38-CYMRUV3")
+val SPECIFIC_D_SKU_LIST = arrayOf("CTK01-GLA")
