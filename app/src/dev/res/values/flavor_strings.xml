@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Scanner DEV</string>
+    <string name="flavorSuffix"> DEV</string>
+    <string name="versionSuffix">_dev</string>
+</resources>
