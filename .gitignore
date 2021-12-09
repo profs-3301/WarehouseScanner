@@ -92,5 +92,7 @@ app/release/release/
 *.lock
 *.bin
 *.properties
+!gradle/**
+!gradle.properties
 
 app/uat/release/output.json
