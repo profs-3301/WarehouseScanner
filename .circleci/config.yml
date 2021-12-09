@@ -11,8 +11,8 @@ jobs:
     steps:
       - checkout
 
-      - android/run-tests:
-          test-command: ./gradlew lint testDebug --continue
+#      - android/run-tests:
+#          test-command: ./gradlew lint testDebug --continue
 
       - android/start-emulator-and-run-tests:
           test-command: ./gradlew connectedDebugAndroidTest
