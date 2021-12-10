@@ -7,14 +7,15 @@ jobs:
   build-and-test:
     executor:
       name: android/android-machine
+      
+  resource_class: large
+  steps:
+    - checkout
 
-    steps:
-      - checkout
-
-      - run:
-          name: Assemble release build
-          command: |
-            ./gradlew assembleDebug
+    - run:
+        name: Assemble release build
+        command: |
+          ./gradlew assembleDebug
 workflows:
   sample:
     jobs:
