@@ -8,14 +8,14 @@ jobs:
     executor:
       name: android/android-machine
       
-  resource_class: large
-  steps:
-    - checkout
+    resource_class: large
+    steps:
+      - checkout
 
-    - run:
-        name: Assemble release build
-        command: |
-          ./gradlew assembleDebug
+      - run:
+          name: Assemble release build
+          command: |
+            ./gradlew assembleDebug
 workflows:
   sample:
     jobs:
