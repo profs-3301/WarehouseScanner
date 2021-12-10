@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="java.util.ArrayList" />
+
+        <import type="me.tatarka.bindingcollectionadapter2.LayoutManagers" />
+
+        <variable
+            name="viewModel"
+            type="com.goodswarehouse.scanner.presentation.screens.action.ActionViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_acceptance"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="40dp"
+            android:background="@color/colorPrimary"
+            android:ems="8"
+            android:onClick="@{() -> viewModel.acceptance()}"
+            android:text="acceptance"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toTopOf="@+id/btn_departure"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <Button
+            android:id="@+id/btn_departure"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_margin="40dp"
+            android:background="@color/colorPrimary"
+            android:ems="8"
+            android:onClick="@{() -> viewModel.departure()}"
+            android:text="departure"
+            android:textAllCaps="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_acceptance" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

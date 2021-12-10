@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Scanner UAT</string>
+    <string name="flavorSuffix"> UAT</string>
+    <string name="versionSuffix">_uat</string>
+</resources>

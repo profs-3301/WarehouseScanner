@@ -1,0 +1,16 @@
+<resources>
+<!--//todo-->
+    <string name="app_version">v%d %s</string>
+
+    <string name="permission_title">Permission Request</string>
+    <string name="permission_message_pattern">Allow access to %1$s</string>
+
+    <string name="deviceId">deviceId: \t</string>
+    <string name="online">online</string>
+    <string name="offline">offline mode</string>
+
+    <string name="error_internet">It seems you are offline.\nPlease connect to the internet</string>
+    <string name="error_app_version">You are using an outdated version of the program so you cannot use this device. Please hand this device to your manager to get updated to version %d</string>
+    <string name="error_prefix">You have scanned a Vial barcode that is not for this Item. The Vial barcode should start with either %s. Please report this to your manager</string>
+
+</resources>
