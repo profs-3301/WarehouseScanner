@@ -7,6 +7,11 @@ jobs:
   build-and-test:
     executor:
       name: android/android-machine
+    
+    environment:
+      # Configure the JVM and Gradle to avoid OOM errors
+      _JAVA_OPTIONS: "-Xmx3g"
+      GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.compiler.execution.strategy=in-process"
       
     steps:
       - checkout
