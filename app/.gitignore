@@ -1,0 +1,7 @@
+/build
+
+*.lock
+*.bin
+*.properties
+
+output-metadata.json

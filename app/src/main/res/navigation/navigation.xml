@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/login_fragment">
+
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.goodswarehouse.scanner.presentation.screens.login.LoginFragment"
+        android:label="LoginFragment">
+
+        <action
+            android:id="@+id/open_action"
+            app:destination="@id/action" />
+    </fragment>
+
+<!---->
+
+    <fragment
+        android:id="@+id/action"
+        android:name="com.goodswarehouse.scanner.presentation.screens.action.ActionFragment"
+        android:label="ActionFragment">
+        <action
+            android:id="@+id/open_acceptance"
+            app:destination="@id/acceptance" />
+        <action
+            android:id="@+id/open_departure"
+            app:destination="@id/departure" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/acceptance"
+        android:name="com.goodswarehouse.scanner.presentation.screens.acceptance.AcceptanceFragment"
+        android:label="AcceptanceFragment">
+    </fragment>
+
+    <fragment
+        android:id="@+id/departure"
+        android:name="com.goodswarehouse.scanner.presentation.screens.departure.DepartureFragment"
+        android:label="DepartureFragment">
+    </fragment>
+
+</navigation>
