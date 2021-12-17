@@ -7,3 +7,4 @@ Using a special smartphone, we can scan the barcodes of goods coming to the ware
 ### CI Server: https://app.circleci.com/pipelines/github/profs-3301/WarehouseScanner
 ### ER-diagram: https://dbdiagram.io/d/61858f69d5d522682dfadc93
 ### Design Prototype: Figma - https://www.figma.com/file/swGLEJ10bhhUrC9EVhrWuB/Mobile-app?node-id=0%3A1
+### Setup Instruction - https://github.com/profs-3301/WarehouseScanner/blob/develop/SETUP.md
