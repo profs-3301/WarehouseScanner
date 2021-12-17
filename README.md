@@ -4,6 +4,6 @@ Using a special smartphone, we can scan the barcodes of goods coming to the ware
 
 ## Stack Technologies: Kotlin, SQLite
 ### Issue Tracking System: Trello (Kanban methodology) - https://trello.com/b/2v37q6iE/profs
-### CI Server: https://circleci.com/
+### CI Server: https://app.circleci.com/pipelines/github/profs-3301/WarehouseScanner
 ### ER-diagram: https://dbdiagram.io/d/61858f69d5d522682dfadc93
 ### Design Prototype: Figma - https://www.figma.com/file/swGLEJ10bhhUrC9EVhrWuB/Mobile-app?node-id=0%3A1
