@@ -9,3 +9,4 @@ Using a special smartphone, we can scan the barcodes of goods coming to the ware
 ### [Design Prototype: Figma](https://www.figma.com/file/swGLEJ10bhhUrC9EVhrWuB/Mobile-app?node-id=0%3A1)
 ### [Setup Instruction](https://github.com/profs-3301/WarehouseScanner/blob/develop/SETUP.md)
 ### [Architecture Diagram](https://lucid.app/lucidchart/db4ee3e0-5b13-4499-abee-d59e0d2d7d83/edit?invitationId=inv_f293f98b-d4e6-44e8-9ae8-a0c2382e9bf6)
+1
